@@ -1,0 +1,91 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --color-ivory: #fdf8ef;
+  --color-cream: #f7ecd6;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-ivory);
+    color: var(--color-stone-900);
+    -webkit-text-size-adjust: 100%;
+  }
+  html.dark {
+    background-color: var(--color-stone-950);
+    color: var(--color-stone-100);
+    color-scheme: dark;
+  }
+  body {
+    min-height: 100dvh;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-rose-900);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  .dark :focus-visible {
+    outline-color: var(--color-amber-400);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.55;
+  }
+}
+
+.garland-sway {
+  animation: sway 4s ease-in-out infinite;
+}
+
+.skeleton {
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  html,
+  html.dark {
+    background: #fff;
+    color: #000;
+  }
+  @page {
+    margin: 14mm;
+  }
+}

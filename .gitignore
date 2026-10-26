@@ -1,0 +1,18 @@
+node_modules/
+dist/
+coverage/
+.vercel/
+*.log
+.DS_Store
+*.tmp.mjs
+
+# secrets - only .env.example is committed
+.env*
+!.env.example
+
+# local tooling output
+.playwright-mcp/
+
+# local-only: submission assets
+docs/*.png
+docs/*.mp4
