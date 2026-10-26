@@ -59,8 +59,8 @@ export default function VendorsTab({ event, dispatch }) {
             onClick={() => setFilter(value)}
             className={`min-h-9 rounded-full border px-3 text-sm font-semibold transition-all ${
               filter === value
-                ? 'border-amber-400/50 bg-gradient-to-r from-emerald-950 to-teal-900 text-amber-200 shadow-sm dark:border-transparent dark:from-amber-400 dark:to-yellow-500 dark:text-emerald-950'
-                : 'border-amber-300/60 bg-white/90 text-stone-800 hover:border-amber-400 hover:bg-amber-50/80 dark:border-emerald-900/60 dark:bg-[#071f18] dark:text-stone-200'
+                ? 'border-amber-400/50 bg-gradient-to-r from-purple-950 to-indigo-900 text-amber-200 shadow-sm dark:border-transparent dark:from-amber-400 dark:to-yellow-500 dark:text-purple-950'
+                : 'border-amber-300/60 bg-white/90 text-stone-800 hover:border-amber-400 hover:bg-purple-50/80 dark:border-purple-800/40 dark:bg-[#130924] dark:text-stone-200'
             }`}
           >
             {label} ({count})

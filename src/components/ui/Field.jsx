@@ -1,5 +1,5 @@
 export const inputClass =
-  'block w-full min-h-11 rounded-xl border border-amber-300/60 bg-white px-3 py-2 text-base text-stone-900 placeholder:text-stone-400 shadow-sm transition-all focus:border-emerald-800 focus:ring-2 focus:ring-amber-400/30 aria-[invalid=true]:border-red-700 dark:border-emerald-800/60 dark:bg-[#041a14] dark:text-stone-100 dark:placeholder:text-stone-500 dark:aria-[invalid=true]:border-red-400';
+  'block w-full min-h-11 rounded-xl border border-amber-300/60 bg-white px-3 py-2 text-base text-stone-900 placeholder:text-stone-400 shadow-sm transition-all focus:border-purple-800 focus:ring-2 focus:ring-amber-400/30 aria-[invalid=true]:border-red-700 dark:border-purple-800/60 dark:bg-[#130924] dark:text-stone-100 dark:placeholder:text-stone-500 dark:aria-[invalid=true]:border-red-400';
 
 /**
  * Label + control + hint/error, wired with aria-describedby / aria-invalid.

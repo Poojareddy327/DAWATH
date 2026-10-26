@@ -1,10 +1,10 @@
 const VARIANTS = {
   primary:
-    'bg-gradient-to-r from-emerald-950 via-emerald-900 to-teal-950 text-amber-100 shadow-md border border-amber-400/40 hover:from-emerald-900 hover:to-teal-900 hover:border-amber-400/70 hover:shadow-emerald-950/25 active:scale-[0.99] dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 dark:text-emerald-950 dark:hover:from-amber-300 dark:hover:to-yellow-300 dark:border-amber-200/50',
+    'bg-gradient-to-r from-purple-950 via-indigo-950 to-purple-900 text-amber-200 shadow-md border border-amber-400/50 hover:from-purple-900 hover:to-indigo-900 hover:border-amber-400/80 hover:shadow-purple-950/30 active:scale-[0.99] dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 dark:text-purple-950 dark:hover:from-amber-300 dark:hover:to-yellow-300 dark:border-amber-200/50',
   secondary:
-    'border border-emerald-950/20 bg-white/90 backdrop-blur-sm text-emerald-950 shadow-sm hover:border-amber-500/60 hover:bg-amber-50/70 active:scale-[0.99] dark:border-amber-400/30 dark:bg-emerald-950/40 dark:text-amber-200 dark:hover:bg-emerald-900/50',
+    'border border-purple-950/20 bg-white/90 backdrop-blur-sm text-purple-950 shadow-sm hover:border-amber-500/70 hover:bg-purple-50/70 active:scale-[0.99] dark:border-purple-400/30 dark:bg-purple-950/40 dark:text-amber-200 dark:hover:bg-purple-900/50',
   ghost:
-    'text-emerald-950 hover:bg-emerald-100/60 active:scale-[0.99] dark:text-amber-200 dark:hover:bg-emerald-950/60',
+    'text-purple-950 hover:bg-purple-100/60 active:scale-[0.99] dark:text-amber-200 dark:hover:bg-purple-950/60',
   danger:
     'border border-rose-300 bg-rose-50 text-rose-900 hover:bg-rose-100 dark:border-rose-900/50 dark:bg-rose-950/40 dark:text-rose-200',
 };

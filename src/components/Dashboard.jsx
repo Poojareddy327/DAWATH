@@ -5,6 +5,7 @@ import { formatDate, formatINR, formatNumber } from '../lib/format.js';
 import { downloadBudgetPdf } from '../lib/pdf.js';
 import BudgetTab from './BudgetTab.jsx';
 import IdeasTab from './IdeasTab.jsx';
+import ReadinessScore from './ReadinessScore.jsx';
 import Tabs from './Tabs.jsx';
 import TimelineTab from './TimelineTab.jsx';
 import VendorsTab from './VendorsTab.jsx';
@@ -91,6 +92,8 @@ export default function Dashboard({ event, dispatch, today, notify }) {
           </ul>
         )}
       </section>
+
+      <ReadinessScore event={event} today={today} />
 
       <Tabs label="Plan sections" tabs={TABS} active={tab} onChange={setTab}>
         {(active) => {

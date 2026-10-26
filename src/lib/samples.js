@@ -5,7 +5,7 @@ import { addDays } from './dates.js';
 export const PERSONAS = [
   {
     id: 'ananya',
-    label: 'Ananya’s Hyderabad Telugu Pelli',
+    label: 'Ananya & Karthik’s Royal Telugu Pelli',
     daysOut: 90,
     meta: {
       type: 'wedding',
@@ -19,7 +19,7 @@ export const PERSONAS = [
   },
   {
     id: 'farhan',
-    label: 'Farhan’s Banjara Hills Valima Dawat',
+    label: 'Mirza Farhan’s Banjara Hills Valima Dawat',
     daysOut: 45,
     meta: {
       type: 'wedding',
@@ -33,7 +33,7 @@ export const PERSONAS = [
   },
   {
     id: 'arjun',
-    label: 'Arjun’s Hyderabad Birthday Dawat',
+    label: 'Arjun’s Cyberabad Birthday Dawat',
     daysOut: 21,
     meta: {
       type: 'birthday',

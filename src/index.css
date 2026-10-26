@@ -5,29 +5,30 @@
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Fraunces', ui-serif, Georgia, serif;
-  --color-ivory: #faf8f2;
-  --color-cream: #f4eee0;
-  --color-hyderabad-emerald: #064e3b;
-  --color-deccani-teal: #0f766e;
+  --color-ivory: #faf8fc;
+  --color-cream: #f5effc;
+  --color-imperial-purple: #4c1d95;
+  --color-deccani-amethyst: #6b21a8;
+  --color-golconda-teal: #0891b2;
   --color-nizam-gold: #d97706;
   --color-zari-amber: #f59e0b;
-  --color-royal-ruby: #9f1239;
+  --color-champagne: #fef3c7;
 }
 
 @layer base {
   html {
-    background-color: #faf8f2;
+    background-color: #faf8fc;
     color: #1c1917;
     -webkit-text-size-adjust: 100%;
-    /* Rich Deccani jaali lattice motif */
-    background-image: radial-gradient(#d9770622 1.25px, transparent 1.25px);
+    /* Royal Deccani Amethyst & Gold lattice motif */
+    background-image: radial-gradient(#6b21a818 1.25px, transparent 1.25px);
     background-size: 24px 24px;
   }
   html.dark {
-    background-color: #031713;
+    background-color: #0d071d;
     color: #f5f5f4;
     color-scheme: dark;
-    background-image: radial-gradient(#fbbf2418 1.25px, transparent 1.25px);
+    background-image: radial-gradient(#c084fc18 1.25px, transparent 1.25px);
     background-size: 24px 24px;
   }
   body {
@@ -39,7 +40,7 @@
     font-family: var(--font-display);
   }
   :focus-visible {
-    outline: 3px solid #064e3b;
+    outline: 3px solid #6b21a8;
     outline-offset: 2px;
     border-radius: 8px;
   }

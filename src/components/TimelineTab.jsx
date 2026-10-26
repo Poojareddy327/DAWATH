@@ -11,12 +11,22 @@ import ProgressBar from './ui/ProgressBar.jsx';
 export default function TimelineTab({ event, dispatch, today }) {
   const [adding, setAdding] = useState(false);
   const [editingId, setEditingId] = useState(null);
+  const [filter, setFilter] = useState('all');
+  const [search, setSearch] = useState('');
   const { meta, plan, state } = event;
   const daysLeft = daysBetween(today, meta.date);
   const done = new Set(state.doneTaskIds);
   const doneCount = plan.tasks.filter((t) => done.has(t.id)).length;
   const progress = progressPercent(doneCount, plan.tasks.length);
-  const groups = groupTasksByPhase(plan.tasks);
+
+  const filteredTasks = plan.tasks.filter((t) => {
+    if (filter === 'pending' && done.has(t.id)) return false;
+    if (filter === 'done' && !done.has(t.id)) return false;
+    if (search.trim() && !t.title.toLowerCase().includes(search.toLowerCase())) return false;
+    return true;
+  });
+
+  const groups = groupTasksByPhase(filteredTasks);
   const maxDays = Math.max(0, daysLeft);
 
   return (
@@ -26,7 +36,7 @@ export default function TimelineTab({ event, dispatch, today }) {
           <div>
             <h2
               id="countdown-title"
-              className="font-display text-3xl font-bold text-emerald-950 dark:text-amber-300"
+              className="font-display text-3xl font-bold text-purple-950 dark:text-amber-300"
             >
               {countdownLabel(daysLeft)}
             </h2>
@@ -41,6 +51,39 @@ export default function TimelineTab({ event, dispatch, today }) {
         <div className="mt-3">
           <ProgressBar value={progress} label={`Overall progress: ${progress}% of tasks done`} />
         </div>
+
+        {/* Milestone Search & Status Filters */}
+        <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-purple-100 pt-3 dark:border-purple-900/50">
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search milestones…"
+            aria-label="Search milestones"
+            className="min-h-9 flex-1 rounded-full border border-amber-300/60 bg-white px-3.5 text-xs text-stone-900 shadow-xs focus:border-purple-800 focus:outline-none dark:border-purple-800/60 dark:bg-[#130924] dark:text-stone-100"
+          />
+          <div role="group" aria-label="Filter tasks by status" className="flex gap-1.5">
+            {[
+              ['all', `All (${plan.tasks.length})`],
+              ['pending', `Pending (${plan.tasks.length - doneCount})`],
+              ['done', `Done (${doneCount})`],
+            ].map(([val, label]) => (
+              <button
+                key={val}
+                type="button"
+                onClick={() => setFilter(val)}
+                className={`min-h-8 rounded-full border px-3 text-xs font-semibold transition-all ${
+                  filter === val
+                    ? 'border-amber-400/50 bg-gradient-to-r from-purple-950 to-indigo-900 text-amber-200 shadow-2xs dark:from-amber-400 dark:to-yellow-500 dark:text-purple-950 dark:border-transparent'
+                    : 'border-amber-200/70 bg-white/90 text-stone-700 hover:bg-purple-50 dark:border-purple-800/40 dark:bg-[#130924] dark:text-stone-300'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {adding && (
           <TaskForm
             idPrefix="new-task"

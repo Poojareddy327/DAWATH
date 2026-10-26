@@ -4,7 +4,8 @@ import Button from './ui/Button.jsx';
 
 const PRIORITY_STYLE = {
   high: 'bg-emerald-100 text-emerald-950 border border-emerald-300/60 dark:bg-emerald-950 dark:text-emerald-200',
-  medium: 'bg-amber-100 text-amber-950 border border-amber-300/60 dark:bg-amber-950 dark:text-amber-200',
+  medium:
+    'bg-amber-100 text-amber-950 border border-amber-300/60 dark:bg-amber-950 dark:text-amber-200',
   low: 'bg-stone-100 text-stone-800 border border-stone-200 dark:bg-stone-800 dark:text-stone-200',
 };
 

@@ -43,7 +43,7 @@ export default function EventForm({ today, onSubmit }) {
   return (
     <div className="mx-auto max-w-3xl px-4 pb-16">
       <div className="mb-6 text-center">
-        <h1 className="font-display text-3xl font-bold text-emerald-950 sm:text-4xl dark:text-stone-50">
+        <h1 className="font-display text-3xl font-bold text-purple-950 sm:text-4xl dark:text-stone-50">
           Plan your Hyderabadi & Telangana Celebration
         </h1>
         <p className="mx-auto mt-2 max-w-xl text-stone-700 dark:text-stone-300">
@@ -53,7 +53,7 @@ export default function EventForm({ today, onSubmit }) {
       </div>
 
       <Card className="mb-6">
-        <h2 className="text-lg font-semibold text-emerald-950 dark:text-amber-300">
+        <h2 className="text-lg font-semibold text-purple-950 dark:text-amber-300">
           Try a sample celebration
         </h2>
         <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
@@ -78,7 +78,10 @@ export default function EventForm({ today, onSubmit }) {
           }}
           aria-labelledby="intake-title"
         >
-          <h2 id="intake-title" className="text-lg font-semibold text-emerald-950 dark:text-amber-300">
+          <h2
+            id="intake-title"
+            className="text-lg font-semibold text-purple-950 dark:text-amber-300"
+          >
             Tell us about your event
           </h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">

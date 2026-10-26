@@ -10,7 +10,7 @@ const STATUS_STYLE = {
     'bg-amber-100 text-amber-950 border border-amber-300/60 dark:bg-amber-950 dark:text-amber-200',
   booked:
     'bg-emerald-100 text-emerald-950 border border-emerald-300/60 dark:bg-emerald-950 dark:text-emerald-200',
-  paid: 'bg-gradient-to-r from-emerald-950 to-teal-900 text-amber-200 border border-amber-400/30 dark:from-amber-400 dark:to-yellow-500 dark:text-emerald-950',
+  paid: 'bg-gradient-to-r from-purple-950 to-indigo-900 text-amber-200 border border-amber-400/30 dark:from-amber-400 dark:to-yellow-500 dark:text-purple-950',
 };
 
 export default function VendorCard({ vendor, status, contact, onStatus, onContact }) {
@@ -18,7 +18,7 @@ export default function VendorCard({ vendor, status, contact, onStatus, onContac
   const base = `vendor-${vendor.id}`;
 
   return (
-    <li className="flex flex-col rounded-2xl border border-amber-300/60 bg-white/95 p-4 shadow-sm backdrop-blur-sm dark:border-emerald-900/60 dark:bg-[#071f18]">
+    <li className="flex flex-col rounded-2xl border border-amber-300/60 bg-white/95 p-4 shadow-sm backdrop-blur-sm dark:border-purple-800/40 dark:bg-[#130924]">
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-sans text-base font-semibold text-stone-900 dark:text-stone-100">
           {vendor.type}

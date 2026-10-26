@@ -57,9 +57,9 @@ export default function Garland() {
         </pattern>
       </defs>
 
-      {/* Royal Deccani Emerald top trim with Nizam Gold filigree border */}
-      <rect width="100%" height="5" fill="#064e3b" />
-      <rect width="100%" height="2" y="5" fill="#d97706" />
+      {/* Royal Deccani Amethyst top trim with Nizam Gold filigree border */}
+      <rect width="100%" height="4" fill="#4c1d95" />
+      <rect width="100%" height="2" y="4" fill="#d97706" />
       <rect width="100%" height="52" fill="url(#dawat-swag)" />
     </svg>
   );

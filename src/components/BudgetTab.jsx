@@ -13,7 +13,9 @@ function Stat({ label, value, tone, icon }) {
     <div className="relative overflow-hidden rounded-2xl border border-amber-300/60 bg-gradient-to-br from-white via-amber-50/40 to-white p-4 shadow-sm backdrop-blur-sm dark:border-emerald-800/40 dark:from-[#06241b] dark:via-[#041a14] dark:to-[#06241b]">
       <div className="flex items-center justify-between">
         <p className="text-sm font-medium text-stone-600 dark:text-stone-300">{label}</p>
-        <span className="text-lg" aria-hidden="true">{icon}</span>
+        <span className="text-lg" aria-hidden="true">
+          {icon}
+        </span>
       </div>
       <p
         className={`mt-2 font-display text-2xl font-bold tracking-tight sm:text-3xl ${
@@ -75,17 +77,40 @@ export default function BudgetTab({ event, dispatch, today }) {
         />
       </div>
 
+      {/* Interactive Per-Guest & Catering Intelligence */}
+      <div className="rounded-2xl border border-amber-300/70 bg-gradient-to-r from-purple-50/70 via-white to-amber-50/70 p-4 shadow-sm dark:border-purple-800/40 dark:from-[#150a2b] dark:via-[#110724] dark:to-[#170a30]">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h3 className="font-display text-base font-bold text-purple-950 dark:text-amber-300">
+              Per-Guest & Catering Intelligence
+            </h3>
+            <p className="text-xs text-stone-600 dark:text-stone-300">
+              For {meta.guests} invited guests · Avg overall spend: ₹
+              {Math.round(totals.total / (meta.guests || 1))} / guest
+            </p>
+          </div>
+          <span className="rounded-full border border-purple-300/80 bg-white px-3.5 py-1 text-xs font-bold text-purple-900 shadow-2xs dark:border-purple-700 dark:bg-purple-950 dark:text-amber-300">
+            🍽️ Est. Catering Plate: ₹
+            {Math.round(
+              (rows.find((r) => r.id === 'catering')?.allocated ?? totals.total * 0.35) /
+                (meta.guests || 1),
+            )}{' '}
+            / plate
+          </span>
+        </div>
+      </div>
+
       <Card aria-labelledby="categories-title">
         <h3
           id="categories-title"
-          className="text-lg font-semibold text-emerald-950 dark:text-amber-300"
+          className="text-lg font-semibold text-purple-950 dark:text-amber-300"
         >
           Categories
         </h3>
         <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
           Change any share — the others rebalance so the total stays 100%.
         </p>
-        <ul className="mt-4 divide-y divide-amber-200/60 dark:divide-emerald-900/50">
+        <ul className="mt-4 divide-y divide-purple-100/80 dark:divide-purple-900/40">
           {rows.map((row) => (
             <CategoryRow
               key={`${row.id}-${row.percent}`}

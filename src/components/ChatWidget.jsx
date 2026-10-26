@@ -85,7 +85,7 @@ export default function ChatWidget({ event, dispatch, today }) {
         aria-expanded={open}
         aria-controls="chat-panel"
         onClick={() => (open ? close() : setOpen(true))}
-        className="fixed right-4 bottom-4 z-40 flex min-h-12 items-center gap-2 rounded-full border border-amber-400/50 bg-gradient-to-r from-emerald-950 via-emerald-900 to-teal-950 px-5 font-semibold text-amber-100 shadow-xl transition-all hover:from-emerald-900 hover:to-teal-900 hover:shadow-emerald-950/40 active:scale-95 dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 dark:text-emerald-950"
+        className="fixed right-4 bottom-4 z-40 flex min-h-12 items-center gap-2 rounded-full border border-amber-400/60 bg-gradient-to-r from-purple-950 via-indigo-950 to-purple-900 px-5 font-semibold text-amber-200 shadow-xl transition-all hover:from-purple-900 hover:to-indigo-900 hover:shadow-purple-950/40 active:scale-95 dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 dark:text-purple-950"
       >
         <span aria-hidden="true">🕌</span>
         {open ? 'Close chat' : 'Ask Dawat'}
@@ -97,14 +97,14 @@ export default function ChatWidget({ event, dispatch, today }) {
           role="dialog"
           aria-modal="false"
           aria-labelledby="chat-title"
-          className="fixed inset-x-2 bottom-20 z-40 flex max-h-[75dvh] flex-col rounded-2xl border border-amber-300/80 bg-white/95 shadow-2xl backdrop-blur-md sm:right-4 sm:left-auto sm:w-[420px] dark:border-emerald-800/60 dark:bg-[#071f18]"
+          className="fixed inset-x-2 bottom-20 z-40 flex max-h-[75dvh] flex-col rounded-2xl border border-amber-300/80 bg-white/95 shadow-2xl backdrop-blur-md sm:right-4 sm:left-auto sm:w-[420px] dark:border-purple-800/60 dark:bg-[#130924]"
         >
-          <header className="border-b border-amber-200/80 px-4 py-3 dark:border-emerald-900/60">
+          <header className="border-b border-amber-200/80 px-4 py-3 dark:border-purple-900/60">
             <h2
               id="chat-title"
-              className="text-lg font-semibold text-emerald-950 dark:text-amber-300"
+              className="text-lg font-semibold text-purple-950 dark:text-amber-300"
             >
-              Dawat AI Assistant · దావత్
+              Dawat AI Assistant · దావత్ వేడుక
             </h2>
             <p className="text-xs text-stone-600 dark:text-stone-400">
               Suggestions only change your plan when you press Apply.
@@ -124,8 +124,8 @@ export default function ChatWidget({ event, dispatch, today }) {
                 <div
                   className={`inline-block max-w-[90%] rounded-2xl px-3.5 py-2.5 text-left text-sm whitespace-pre-line ${
                     m.role === 'user'
-                      ? 'bg-gradient-to-r from-emerald-950 to-teal-900 text-amber-100 shadow-sm dark:from-amber-400 dark:to-yellow-500 dark:text-emerald-950'
-                      : 'border border-amber-200/70 bg-white text-stone-900 shadow-sm dark:border-emerald-900/60 dark:bg-[#041a14] dark:text-stone-100'
+                      ? 'bg-gradient-to-r from-purple-950 to-indigo-900 text-amber-200 shadow-sm dark:from-amber-400 dark:to-yellow-500 dark:text-purple-950'
+                      : 'border border-amber-200/70 bg-white text-stone-900 shadow-sm dark:border-purple-800/40 dark:bg-[#180c30] dark:text-stone-100'
                   }`}
                 >
                   {m.text}
@@ -200,7 +200,7 @@ export default function ChatWidget({ event, dispatch, today }) {
                   type="button"
                   disabled={busy}
                   onClick={() => send(chip)}
-                  className="min-h-9 shrink-0 rounded-full border border-amber-300/70 bg-white px-3 text-xs font-semibold text-emerald-950 shadow-xs hover:border-emerald-800 hover:bg-amber-50/80 disabled:opacity-60 dark:border-emerald-800/60 dark:bg-[#041a14] dark:text-amber-200 dark:hover:bg-emerald-950/60"
+                  className="min-h-9 shrink-0 rounded-full border border-amber-300/70 bg-white px-3 text-xs font-semibold text-purple-950 shadow-2xs hover:border-purple-800 hover:bg-purple-50 disabled:opacity-60 dark:border-purple-800/60 dark:bg-[#180c30] dark:text-amber-200 dark:hover:bg-purple-950/60"
                 >
                   {chip}
                 </button>
