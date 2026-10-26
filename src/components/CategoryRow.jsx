@@ -5,7 +5,13 @@ import ProgressBar from './ui/ProgressBar.jsx';
 /** One budget category with an editable share. Commits on blur or Enter. */
 export default function CategoryRow({ row, progress, onPercent }) {
   const [draft, setDraft] = useState(String(row.percent));
+  const [prevPercent, setPrevPercent] = useState(row.percent);
   const inputId = `share-${row.id}`;
+
+  if (row.percent !== prevPercent) {
+    setPrevPercent(row.percent);
+    setDraft(String(row.percent));
+  }
 
   const commit = () => {
     const value = Number(draft);

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { VENDOR_STATUS_LABELS, VENDOR_STATUSES } from '../lib/constants.js';
+import { buildVendorsCsv, downloadCsvFile } from '../lib/csv.js';
 import { formatINR } from '../lib/format.js';
 import VendorCard from './VendorCard.jsx';
 import VendorForm from './VendorForm.jsx';
@@ -46,9 +47,21 @@ export default function VendorsTab({ event, dispatch }) {
             Estimated vendor spend {formatINR(estTotal)} · booked includes paid
           </p>
         </div>
-        <Button onClick={() => setAdding((v) => !v)} aria-expanded={adding}>
-          {adding ? 'Close' : '+ Add vendor'}
-        </Button>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => {
+              const csv = buildVendorsCsv(event);
+              downloadCsvFile(`dawat-vendors-${event.meta.city.toLowerCase()}.csv`, csv);
+            }}
+          >
+            📥 Export Contacts (CSV)
+          </Button>
+          <Button onClick={() => setAdding((v) => !v)} aria-expanded={adding}>
+            {adding ? 'Close' : '+ Add vendor'}
+          </Button>
+        </div>
       </div>
 
       {adding && (

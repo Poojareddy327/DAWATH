@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { progressPercent } from '../lib/budget.js';
 import { PHASES } from '../lib/constants.js';
 import { countdownLabel, daysBetween, groupTasksByPhase } from '../lib/dates.js';
+import DayOfSchedule from './DayOfSchedule.jsx';
 import TaskForm from './TaskForm.jsx';
 import TaskItem from './TaskItem.jsx';
 import Button from './ui/Button.jsx';
@@ -155,6 +156,8 @@ export default function TimelineTab({ event, dispatch, today }) {
           ),
         )
       )}
+
+      <DayOfSchedule event={event} />
     </div>
   );
 }

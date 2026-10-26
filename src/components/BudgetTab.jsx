@@ -1,9 +1,11 @@
 import { lazy, Suspense, useState } from 'react';
 import { budgetBreakdown, budgetTotals, progressPercent } from '../lib/budget.js';
 import { formatINR } from '../lib/format.js';
+import { buildBudgetLedgerCsv, downloadCsvFile } from '../lib/csv.js';
 import CategoryRow from './CategoryRow.jsx';
 import ExpenseForm from './ExpenseForm.jsx';
 import ExpenseList from './ExpenseList.jsx';
+import Button from './ui/Button.jsx';
 import Card from './ui/Card.jsx';
 
 const BudgetCharts = lazy(() => import('./BudgetCharts.jsx'));
@@ -133,9 +135,24 @@ export default function BudgetTab({ event, dispatch, today }) {
       </Suspense>
 
       <Card aria-labelledby="expenses-title">
-        <h3 id="expenses-title" className="text-lg font-semibold text-rose-900 dark:text-amber-300">
-          Expenses
-        </h3>
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <h3
+            id="expenses-title"
+            className="text-lg font-semibold text-purple-950 dark:text-amber-300"
+          >
+            Expenses
+          </h3>
+          <Button
+            size="sm"
+            variant="secondary"
+            onClick={() => {
+              const csv = buildBudgetLedgerCsv(event);
+              downloadCsvFile(`dawat-budget-ledger-${event.meta.city.toLowerCase()}.csv`, csv);
+            }}
+          >
+            📥 Export CSV Ledger
+          </Button>
+        </div>
         <ExpenseForm
           key={editing?.id ?? 'new'}
           categories={plan.budget.categories}
