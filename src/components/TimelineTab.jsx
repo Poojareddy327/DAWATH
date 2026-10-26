@@ -26,7 +26,7 @@ export default function TimelineTab({ event, dispatch, today }) {
           <div>
             <h2
               id="countdown-title"
-              className="font-display text-3xl font-bold text-rose-900 dark:text-amber-300"
+              className="font-display text-3xl font-bold text-emerald-950 dark:text-amber-300"
             >
               {countdownLabel(daysLeft)}
             </h2>

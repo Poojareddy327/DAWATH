@@ -3,9 +3,9 @@ import { formatDate } from '../lib/format.js';
 import Button from './ui/Button.jsx';
 
 const PRIORITY_STYLE = {
-  high: 'bg-rose-100 text-rose-900 dark:bg-rose-950 dark:text-rose-200',
-  medium: 'bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200',
-  low: 'bg-stone-200 text-stone-800 dark:bg-stone-800 dark:text-stone-200',
+  high: 'bg-emerald-100 text-emerald-950 border border-emerald-300/60 dark:bg-emerald-950 dark:text-emerald-200',
+  medium: 'bg-amber-100 text-amber-950 border border-amber-300/60 dark:bg-amber-950 dark:text-amber-200',
+  low: 'bg-stone-100 text-stone-800 border border-stone-200 dark:bg-stone-800 dark:text-stone-200',
 };
 
 export default function TaskItem({ task, eventDate, today, done, onToggle, onEdit, onRemove }) {
@@ -14,10 +14,10 @@ export default function TaskItem({ task, eventDate, today, done, onToggle, onEdi
 
   return (
     <li
-      className={`flex flex-wrap items-start gap-3 rounded-2xl border p-3 ${
+      className={`flex flex-wrap items-start gap-3 rounded-2xl border p-3.5 shadow-sm transition-all ${
         overdue
-          ? 'border-red-700 bg-red-50 dark:border-red-400 dark:bg-red-950/40'
-          : 'border-amber-200/70 bg-white dark:border-stone-800 dark:bg-stone-900'
+          ? 'border-red-700 bg-red-50/80 dark:border-red-400 dark:bg-red-950/40'
+          : 'border-amber-300/60 bg-white/95 dark:border-emerald-900/60 dark:bg-[#071f18]'
       }`}
     >
       <input
@@ -25,7 +25,7 @@ export default function TaskItem({ task, eventDate, today, done, onToggle, onEdi
         type="checkbox"
         checked={done}
         onChange={onToggle}
-        className="mt-1 size-5 shrink-0 accent-rose-900 dark:accent-amber-400"
+        className="mt-1 size-5 shrink-0 rounded cursor-pointer accent-emerald-900 dark:accent-amber-400"
       />
       <div className="min-w-48 flex-1">
         <label

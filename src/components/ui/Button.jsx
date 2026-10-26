@@ -1,11 +1,12 @@
 const VARIANTS = {
   primary:
-    'bg-emerald-900 text-white shadow-sm hover:bg-emerald-800 border border-emerald-950/20 dark:bg-amber-400 dark:text-emerald-950 dark:hover:bg-amber-300 dark:border-amber-500/30',
+    'bg-gradient-to-r from-emerald-950 via-emerald-900 to-teal-950 text-amber-100 shadow-md border border-amber-400/40 hover:from-emerald-900 hover:to-teal-900 hover:border-amber-400/70 hover:shadow-emerald-950/25 active:scale-[0.99] dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 dark:text-emerald-950 dark:hover:from-amber-300 dark:hover:to-yellow-300 dark:border-amber-200/50',
   secondary:
-    'border border-emerald-900/30 bg-white text-emerald-900 hover:bg-emerald-50/80 dark:border-amber-300/40 dark:bg-stone-900 dark:text-amber-200 dark:hover:bg-stone-800',
-  ghost: 'text-emerald-900 hover:bg-emerald-50 dark:text-amber-200 dark:hover:bg-stone-800',
+    'border border-emerald-950/20 bg-white/90 backdrop-blur-sm text-emerald-950 shadow-sm hover:border-amber-500/60 hover:bg-amber-50/70 active:scale-[0.99] dark:border-amber-400/30 dark:bg-emerald-950/40 dark:text-amber-200 dark:hover:bg-emerald-900/50',
+  ghost:
+    'text-emerald-950 hover:bg-emerald-100/60 active:scale-[0.99] dark:text-amber-200 dark:hover:bg-emerald-950/60',
   danger:
-    'border border-red-700/40 bg-white text-red-800 hover:bg-red-50 dark:border-red-400/50 dark:bg-stone-900 dark:text-red-300 dark:hover:bg-stone-800',
+    'border border-rose-300 bg-rose-50 text-rose-900 hover:bg-rose-100 dark:border-rose-900/50 dark:bg-rose-950/40 dark:text-rose-200',
 };
 
 const SIZES = {

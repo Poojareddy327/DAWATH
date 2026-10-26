@@ -27,7 +27,7 @@ export default function Tabs({ label, tabs, active, onChange, children }) {
       <div
         role="tablist"
         aria-label={label}
-        className="-mx-4 flex gap-1 overflow-x-auto [scrollbar-width:thin] border-b border-amber-200 px-4 dark:border-stone-800 print:hidden"
+        className="-mx-2 flex gap-1.5 overflow-x-auto [scrollbar-width:thin] rounded-2xl border border-amber-300/60 bg-white/85 p-1.5 shadow-sm backdrop-blur-sm sm:mx-0 dark:border-emerald-800/50 dark:bg-[#071f18]/80 print:hidden"
       >
         {tabs.map((tab) => {
           const selected = tab.id === active;
@@ -45,10 +45,10 @@ export default function Tabs({ label, tabs, active, onChange, children }) {
               tabIndex={selected ? 0 : -1}
               onClick={() => onChange(tab.id)}
               onKeyDown={onKeyDown}
-              className={`shrink-0 rounded-t-xl border-b-3 px-4 py-3 text-sm font-semibold whitespace-nowrap transition-colors ${
+              className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
                 selected
-                  ? 'border-rose-900 text-rose-900 dark:border-amber-400 dark:text-amber-300'
-                  : 'border-transparent text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100'
+                  ? 'border border-amber-400/40 bg-gradient-to-r from-emerald-950 via-emerald-900 to-teal-950 text-amber-200 shadow-md dark:border-transparent dark:from-amber-400 dark:to-yellow-500 dark:text-emerald-950'
+                  : 'text-stone-700 hover:bg-amber-50/80 hover:text-emerald-950 dark:text-stone-300 dark:hover:bg-emerald-900/40 dark:hover:text-amber-200'
               }`}
             >
               <span aria-hidden="true">{tab.icon} </span>

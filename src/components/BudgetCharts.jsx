@@ -18,10 +18,10 @@ import { formatINR } from '../lib/format.js';
 import Button from './ui/Button.jsx';
 import Card from './ui/Card.jsx';
 
-// Validated categorical palette (fixed order, light / dark steps).
+// Validated categorical palette: Royal Deccani Emerald, Nizam Gold, Zari Amber, Jewel Teal, Gadwal Ruby
 const SERIES = {
-  light: ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#6250d6', '#e34948'],
-  dark: ['#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#008300', '#9085e9', '#e66767'],
+  light: ['#064e3b', '#d97706', '#0f766e', '#f59e0b', '#9f1239', '#047857', '#b45309', '#be123c'],
+  dark: ['#10b981', '#fbbf24', '#2dd4bf', '#fde047', '#f43f5e', '#34d399', '#f59e0b', '#fb7185'],
 };
 
 const compactINR = (n) =>
@@ -86,7 +86,7 @@ export default function BudgetCharts({ rows }) {
   return (
     <Card aria-labelledby="charts-title">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h3 id="charts-title" className="text-lg font-semibold text-rose-900 dark:text-amber-300">
+        <h3 id="charts-title" className="text-lg font-semibold text-emerald-950 dark:text-amber-300">
           Budget at a glance
         </h3>
         <Button

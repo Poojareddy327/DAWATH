@@ -4,10 +4,13 @@ import { formatINR } from '../lib/format.js';
 import { inputClass } from './ui/Field.jsx';
 
 const STATUS_STYLE = {
-  'to-contact': 'bg-stone-200 text-stone-800 dark:bg-stone-800 dark:text-stone-200',
-  quoted: 'bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200',
-  booked: 'bg-emerald-100 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200',
-  paid: 'bg-rose-900 text-white dark:bg-amber-400 dark:text-stone-950',
+  'to-contact':
+    'bg-stone-100 text-stone-800 border border-stone-200 dark:bg-stone-800 dark:text-stone-200',
+  quoted:
+    'bg-amber-100 text-amber-950 border border-amber-300/60 dark:bg-amber-950 dark:text-amber-200',
+  booked:
+    'bg-emerald-100 text-emerald-950 border border-emerald-300/60 dark:bg-emerald-950 dark:text-emerald-200',
+  paid: 'bg-gradient-to-r from-emerald-950 to-teal-900 text-amber-200 border border-amber-400/30 dark:from-amber-400 dark:to-yellow-500 dark:text-emerald-950',
 };
 
 export default function VendorCard({ vendor, status, contact, onStatus, onContact }) {
@@ -15,13 +18,13 @@ export default function VendorCard({ vendor, status, contact, onStatus, onContac
   const base = `vendor-${vendor.id}`;
 
   return (
-    <li className="flex flex-col rounded-2xl border border-amber-200/70 bg-white p-4 shadow-sm dark:border-stone-800 dark:bg-stone-900">
+    <li className="flex flex-col rounded-2xl border border-amber-300/60 bg-white/95 p-4 shadow-sm backdrop-blur-sm dark:border-emerald-900/60 dark:bg-[#071f18]">
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-sans text-base font-semibold text-stone-900 dark:text-stone-100">
           {vendor.type}
         </h3>
         <span
-          className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-semibold ${STATUS_STYLE[status]}`}
+          className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold ${STATUS_STYLE[status]}`}
         >
           {VENDOR_STATUS_LABELS[status]}
         </span>
@@ -31,7 +34,7 @@ export default function VendorCard({ vendor, status, contact, onStatus, onContac
           {vendor.category}
         </span>
         {vendor.priority === 'must-have' && (
-          <span className="ml-2 font-semibold text-rose-900 dark:text-amber-300">Must-have</span>
+          <span className="ml-2 font-semibold text-amber-800 dark:text-amber-300">Must-have</span>
         )}
       </p>
       <p className="mt-2 font-semibold text-stone-900 dark:text-stone-100">

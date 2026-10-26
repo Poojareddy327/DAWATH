@@ -8,24 +8,26 @@
   --color-ivory: #faf8f2;
   --color-cream: #f4eee0;
   --color-hyderabad-emerald: #064e3b;
+  --color-deccani-teal: #0f766e;
   --color-nizam-gold: #d97706;
   --color-zari-amber: #f59e0b;
+  --color-royal-ruby: #9f1239;
 }
 
 @layer base {
   html {
-    background-color: var(--color-ivory);
+    background-color: #faf8f2;
     color: #1c1917;
     -webkit-text-size-adjust: 100%;
-    /* Subtle Deccani jaali motif in background */
-    background-image: radial-gradient(#d9770615 1px, transparent 1px);
+    /* Rich Deccani jaali lattice motif */
+    background-image: radial-gradient(#d9770622 1.25px, transparent 1.25px);
     background-size: 24px 24px;
   }
   html.dark {
-    background-color: #04140e;
+    background-color: #031713;
     color: #f5f5f4;
     color-scheme: dark;
-    background-image: radial-gradient(#fbbf2410 1px, transparent 1px);
+    background-image: radial-gradient(#fbbf2418 1.25px, transparent 1.25px);
     background-size: 24px 24px;
   }
   body {
@@ -39,7 +41,7 @@
   :focus-visible {
     outline: 3px solid #064e3b;
     outline-offset: 2px;
-    border-radius: 6px;
+    border-radius: 8px;
   }
   .dark :focus-visible {
     outline-color: #fbbf24;

@@ -40,7 +40,7 @@ export default function IdeasTab({ event, dispatch, notify }) {
               {STYLE_SEEDS.map((s) => (
                 <label
                   key={s}
-                  className="flex min-h-9 cursor-pointer items-center gap-2 rounded-full border border-stone-300 bg-white px-3 text-sm has-checked:border-rose-900 has-checked:bg-rose-50 has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-rose-900 dark:border-stone-600 dark:bg-stone-900 dark:has-checked:border-amber-400 dark:has-checked:bg-stone-800"
+                  className="flex min-h-9 cursor-pointer items-center gap-2 rounded-full border border-amber-300/60 bg-white px-3.5 text-sm transition-all has-checked:border-emerald-800 has-checked:bg-emerald-50/80 has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-emerald-800 dark:border-emerald-900/60 dark:bg-[#071f18] dark:has-checked:border-amber-400 dark:has-checked:bg-emerald-950/60"
                 >
                   <input
                     type="radio"
@@ -48,7 +48,7 @@ export default function IdeasTab({ event, dispatch, notify }) {
                     value={s}
                     checked={seed === s}
                     onChange={() => setSeed(s)}
-                    className="accent-rose-900 dark:accent-amber-400"
+                    className="accent-emerald-900 dark:accent-amber-400"
                   />
                   {STYLE_LABELS[s]}
                 </label>
@@ -69,7 +69,7 @@ export default function IdeasTab({ event, dispatch, notify }) {
           <Card key={section.key} aria-labelledby={`ideas-${section.key}`}>
             <h2
               id={`ideas-${section.key}`}
-              className="text-xl font-semibold text-rose-900 dark:text-amber-300"
+              className="text-xl font-semibold text-emerald-950 dark:text-amber-300"
             >
               {section.label}
             </h2>
@@ -80,7 +80,7 @@ export default function IdeasTab({ event, dispatch, notify }) {
                     {idea.title}
                   </h3>
                   <p className="text-sm text-stone-700 dark:text-stone-300">{idea.description}</p>
-                  <p className="mt-1 rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-950 dark:bg-stone-800 dark:text-amber-100">
+                  <p className="mt-1 rounded-xl border border-amber-200/60 bg-amber-50/90 px-3 py-2 text-sm text-amber-950 dark:border-emerald-900/60 dark:bg-[#051f18] dark:text-amber-100">
                     <span aria-hidden="true">💡 </span>
                     <span className="font-semibold">Why this fits you: </span>
                     {idea.whyItFits}

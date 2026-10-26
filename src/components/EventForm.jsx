@@ -78,7 +78,7 @@ export default function EventForm({ today, onSubmit }) {
           }}
           aria-labelledby="intake-title"
         >
-          <h2 id="intake-title" className="text-lg font-semibold text-rose-900 dark:text-amber-300">
+          <h2 id="intake-title" className="text-lg font-semibold text-emerald-950 dark:text-amber-300">
             Tell us about your event
           </h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">

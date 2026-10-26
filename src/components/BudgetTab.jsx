@@ -8,13 +8,18 @@ import Card from './ui/Card.jsx';
 
 const BudgetCharts = lazy(() => import('./BudgetCharts.jsx'));
 
-function Stat({ label, value, tone }) {
+function Stat({ label, value, tone, icon }) {
   return (
-    <div className="rounded-2xl border border-amber-200/70 bg-cream/60 p-4 dark:border-stone-800 dark:bg-stone-900">
-      <p className="text-sm text-stone-700 dark:text-stone-300">{label}</p>
+    <div className="relative overflow-hidden rounded-2xl border border-amber-300/60 bg-gradient-to-br from-white via-amber-50/40 to-white p-4 shadow-sm backdrop-blur-sm dark:border-emerald-800/40 dark:from-[#06241b] dark:via-[#041a14] dark:to-[#06241b]">
+      <div className="flex items-center justify-between">
+        <p className="text-sm font-medium text-stone-600 dark:text-stone-300">{label}</p>
+        <span className="text-lg" aria-hidden="true">{icon}</span>
+      </div>
       <p
-        className={`mt-1 font-display text-xl font-bold sm:text-2xl ${
-          tone === 'danger' ? 'text-red-800 dark:text-red-300' : 'text-stone-900 dark:text-stone-50'
+        className={`mt-2 font-display text-2xl font-bold tracking-tight sm:text-3xl ${
+          tone === 'danger'
+            ? 'text-red-700 dark:text-red-400'
+            : 'text-emerald-950 dark:text-amber-200'
         }`}
       >
         {value}
@@ -55,30 +60,32 @@ export default function BudgetTab({ event, dispatch, today }) {
       )}
 
       <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-3">
-        <Stat label="Total budget" value={formatINR(totals.total)} />
+        <Stat label="Total budget" value={formatINR(totals.total)} icon="🪙" />
         <Stat
           label="Spent"
           value={formatINR(totals.spent)}
           tone={totals.overTotal ? 'danger' : ''}
+          icon="💸"
         />
         <Stat
           label="Remaining"
           value={formatINR(totals.remaining)}
           tone={totals.remaining < 0 ? 'danger' : ''}
+          icon="✨"
         />
       </div>
 
       <Card aria-labelledby="categories-title">
         <h3
           id="categories-title"
-          className="text-lg font-semibold text-rose-900 dark:text-amber-300"
+          className="text-lg font-semibold text-emerald-950 dark:text-amber-300"
         >
           Categories
         </h3>
         <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
           Change any share — the others rebalance so the total stays 100%.
         </p>
-        <ul className="mt-4 divide-y divide-amber-100 dark:divide-stone-800">
+        <ul className="mt-4 divide-y divide-amber-200/60 dark:divide-emerald-900/50">
           {rows.map((row) => (
             <CategoryRow
               key={`${row.id}-${row.percent}`}
