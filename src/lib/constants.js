@@ -11,6 +11,12 @@ export const EVENT_TYPES = [
 export const EVENT_TYPE_VALUES = EVENT_TYPES.map((t) => t.value);
 
 export const CULTURES = [
+  'Telugu (Telangana Pelli)',
+  'Hyderabadi Muslim (Nikah / Valima)',
+  'Telugu Christian',
+  'Deccani Marwari',
+  'Deccani Jain',
+  'Secular / Modern Hyderabadi',
   'North Indian',
   'Kerala',
   'Tamil',
@@ -40,11 +46,11 @@ export const LIMITS = {
 export const STYLE_SEEDS = ['traditional', 'modern-minimal', 'eco', 'budget-smart', 'grand'];
 
 export const STYLE_LABELS = {
-  traditional: 'Traditional',
-  'modern-minimal': 'Modern minimal',
-  eco: 'Eco-friendly',
+  traditional: 'Traditional Nizami / Kakatiya',
+  'modern-minimal': 'Modern Hitec City Minimal',
+  eco: 'Eco-friendly Tangedu',
   'budget-smart': 'Budget-smart',
-  grand: 'Grand',
+  grand: 'Royal Grand Dawat',
 };
 
 export const VENDOR_STATUSES = ['to-contact', 'quoted', 'booked', 'paid'];
@@ -72,8 +78,8 @@ export const PHASES = [
   { key: 'day-of', label: 'Day before & day of' },
 ];
 
-export const STORAGE_KEY = 'utsav:v1:event';
-export const THEME_KEY = 'utsav:theme';
+export const STORAGE_KEY = 'dawat:v1:event';
+export const THEME_KEY = 'dawat:theme';
 
 export const AI_TIMEOUT_MS = 25000;
 export const CLIENT_TIMEOUT_MS = 32000;

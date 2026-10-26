@@ -59,7 +59,7 @@ describe('POST /api/chat', () => {
     await invoke(chat, { body });
     const { contents } = generateContent.mock.calls[0][0];
     expect(contents.map((c) => c.role)).toEqual(['user', 'model', 'user']);
-    expect(contents[2].parts[0].text).toMatch(/^You are Utsav, the user's personal event planner/);
+    expect(contents[2].parts[0].text).toMatch(/^You are Dawat, the user's personal event planner/);
   });
 
   it('rejects oversized messages', async () => {

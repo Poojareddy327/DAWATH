@@ -74,8 +74,8 @@ export default function Dashboard({ event, dispatch, today, notify }) {
         <p className="mt-3 max-w-3xl text-stone-800 dark:text-stone-200">{plan.summary}</p>
         <p className="mt-2 text-xs text-stone-600 dark:text-stone-400">
           {plan.source === 'ai'
-            ? '✨ Drafted by Gemini · amounts computed by Utsav'
-            : '🛟 Smart starter plan (offline planner) · amounts computed by Utsav'}
+            ? '✨ Drafted by Gemini · amounts computed by Dawat'
+            : '🛟 Smart starter plan (Deccani offline planner) · amounts computed by Dawat'}
         </p>
         {plan.warnings.length > 0 && (
           <ul className="mt-3 space-y-2" aria-label="Plan warnings">

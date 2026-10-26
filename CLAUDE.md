@@ -1,4 +1,4 @@
-# CLAUDE.md — Utsav
+# CLAUDE.md — Dawat
 
 GenAI celebration & event planner for PromptWars Challenge 5 (deadline **Nov 1, 2026**).
 Source of truth: `docs/` (README, PRD, PLAN, PROMPT_SPEC, SUBMISSION). **If docs conflict, `docs/PRD.md` wins.**
@@ -10,7 +10,7 @@ Build order and "Done when" checks follow `docs/PLAN.md`.
 - Vercel Serverless Functions in `/api` for every Gemini call, using the official `@google/genai` SDK.
 - Zod (schemas + AI validation), Recharts (code-split), jsPDF (code-split).
 - Vitest + React Testing Library; ESLint + Prettier.
-- Persistence: `localStorage` via `src/lib/storage.js` only (key `utsav:v1:event`).
+- Persistence: `localStorage` via `src/lib/storage.js` only (key `dawat:v1:event`).
 - No new dependencies beyond this list without asking.
 
 ## Folder structure
@@ -57,6 +57,6 @@ docs/                # PRD, PLAN, PROMPT_SPEC, SUBMISSION, README
 - Logic lives in `src/lib/` as small pure functions with tests; components stay small.
 - Accessibility: label on every input, `aria-describedby` for errors, ARIA tabs with arrow keys, visible focus, table alternative for every chart, WCAG AA contrast, respect `prefers-reduced-motion`.
 - Mobile-first, check at 360px; dark mode via Tailwind `dark:`.
-- Design: ivory/cream base, marigold (amber-500) + maroon (rose-900) accents, CSS/SVG utsav garland in header, Fraunces headings + Inter body. No purple AI gradients, no image assets.
+- Design: ivory/cream base, marigold (amber-500) + maroon (rose-900) accents, CSS/SVG dawat garland in header, Fraunces headings + Inter body. No purple AI gradients, no image assets.
 - Before every commit: `npm run lint` and `npm test` green. Conventional commits, e.g. `feat(budget): rebalance + expense log`.
 - Keep the repo lean: no `dist/`, no `node_modules/`, no large assets, no dead code.

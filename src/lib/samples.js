@@ -1,7 +1,50 @@
-// PRD §3 personas, with dates relative to today so "Try a sample" always validates.
+// PRD §3 personas: authentic Telangana & Hyderabadi celebration cases,
+// plus standard test fixtures. Dates are relative to today so "Try a sample" always validates.
 import { addDays } from './dates.js';
 
 export const PERSONAS = [
+  {
+    id: 'ananya',
+    label: 'Ananya’s Hyderabad Telugu Pelli',
+    daysOut: 90,
+    meta: {
+      type: 'wedding',
+      budget: 1500000,
+      guests: 500,
+      city: 'Hyderabad',
+      culture: 'Telugu (Telangana Pelli)',
+      prefs:
+        'Morning Muhurtham at Kompally convention hall, traditional Jeelakarra Bellam & Talambralu, Hyderabadi Dum Biryani & Telugu Vindu Bhojanam',
+    },
+  },
+  {
+    id: 'farhan',
+    label: 'Farhan’s Banjara Hills Valima Dawat',
+    daysOut: 45,
+    meta: {
+      type: 'wedding',
+      budget: 700000,
+      guests: 350,
+      city: 'Hyderabad',
+      culture: 'Hyderabadi Muslim (Nikah / Valima)',
+      prefs:
+        'Royal Dawat banquet at Banjara Hills, authentic Zafrani Mutton Dum Biryani, Double Ka Meetha, Marfa band, Sufi qawwali atmosphere',
+    },
+  },
+  {
+    id: 'arjun',
+    label: 'Arjun’s Hyderabad Birthday Dawat',
+    daysOut: 21,
+    meta: {
+      type: 'birthday',
+      budget: 45000,
+      guests: 30,
+      city: 'Hyderabad',
+      culture: 'Telugu',
+      prefs:
+        'Gachibowli party hall, superhero Tollywood theme for kids, mini biryani & snacks, return gifts',
+    },
+  },
   {
     id: 'priya',
     label: 'Priya’s Kochi wedding',
@@ -16,29 +59,17 @@ export const PERSONAS = [
     },
   },
   {
-    id: 'arjun',
-    label: 'Arjun’s son’s 7th birthday',
-    daysOut: 21,
-    meta: {
-      type: 'birthday',
-      budget: 40000,
-      guests: 25,
-      city: 'Pune',
-      culture: 'Marathi',
-      prefs: '25 kids aged 6–8, superhero theme hints, indoor, return gifts needed',
-    },
-  },
-  {
-    id: 'meera',
-    label: 'Meera’s community Onam sadhya',
-    daysOut: 10,
+    id: 'lavanya',
+    label: 'Lavanya’s Warangal Sambaralu',
+    daysOut: 12,
     meta: {
       type: 'community',
-      budget: 120000,
+      budget: 90000,
       guests: 150,
-      city: 'Bengaluru',
-      culture: 'Kerala',
-      prefs: 'Onam sadhya, vegetarian, volunteers from the residents’ association, track spending',
+      city: 'Warangal',
+      culture: 'Telugu',
+      prefs:
+        'Telangana community Bathukamma festival, Pindi Vantalu, Tangedu flower decor, Oggu Katha folk troupe',
     },
   },
 ];

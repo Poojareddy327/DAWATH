@@ -52,7 +52,7 @@ describe('POST /api/plan', () => {
     expect(call.model).toBe('model-a');
     expect(call.config).toMatchObject({ responseMimeType: 'application/json', temperature: 0.7 });
     expect(call.config.responseJsonSchema.type).toBe('object');
-    expect(call.config.systemInstruction).toMatch(/^You are Utsav/);
+    expect(call.config.systemInstruction).toMatch(/^You are Dawat/);
     expect(call.contents.at(-1).parts[0].text).toMatch(/^Create a complete event plan\./);
   });
 

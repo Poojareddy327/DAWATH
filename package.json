@@ -1,8 +1,8 @@
 {
-  "name": "utsav",
+  "name": "dawat",
   "private": true,
   "version": "1.0.0",
-  "description": "Utsav - a GenAI celebration & event planner (PromptWars Challenge 5)",
+  "description": "Dawat - a GenAI celebration & event planner for Telangana & Hyderabad (PromptWars Challenge 5)",
   "type": "module",
   "license": "MIT",
   "engines": {

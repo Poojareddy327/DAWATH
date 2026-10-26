@@ -1,24 +1,22 @@
-# 🪔 Utsav — Your AI Celebration Planner
+# 🕌 DAWAT (దావత్) — Telangana & Hyderabadi AI Celebration Planner
 
-> PromptWars Virtual · Challenge 5 (Celebration & Event Planner) · Powered by the Gemini API
+> PromptWars Virtual · Challenge 5 (Celebration & Event Planner) · Powered by Google Gemini API
 
-A _utsav_ is the festive garland hung across the doorway when a celebration is about to begin. **Utsav** is the doorway to your event. You answer six quick questions (event type, date, budget, guests, city, culture) and Gemini drafts a full plan you can edit: a budget split, a countdown timeline, a vendor checklist and personalized ideas. It all lives on one dashboard, and a chat assistant knows your plan.
+A **Dawat** (దావత్) is the legendary feast and joyous gathering at the heart of Telangana and Hyderabadi hospitality (_mehmaan-nawazi_). Whether you are planning a traditional Telugu Pelli in Gachibowli/Kompally, a regal Shahi Valima banquet in Banjara Hills, a Warangal Bathukamma gathering, or a joyful birthday party, **Dawat** turns your vision into a living master plan in seconds: a balanced budget matrix, an interdependent milestone timeline, vendor checklists, and personalized ideas.
 
-**Live demo:** https://utsav-five.vercel.app/ · **Demo video:** https://youtu.be/CdI25O7siXY
-
-**Lighthouse (live, desktop):** Performance 96 · Accessibility 100 · Best Practices 96 · SEO 100.
+**Lighthouse (desktop):** Performance 96 · Accessibility 100 · Best Practices 96 · SEO 100.
 
 ---
 
-## The Problem
+## The Problem & The Deccani Solution
 
-Event planning in India is scattered across tools. Budgets sit in Excel, timelines in WhatsApp, vendor numbers in phone notes and inspiration on Instagram. A 300-guest Kerala wedding and a 25-kid birthday party need completely different plans, but checklist apps give everyone the same template.
+Event planning in Hyderabad and Telangana is notorious for its moving parts: authentic Dum Biryani catering per plate/deg, auspicious Muhurtham timings, convention hall bookings, Marfa troupes and Shehnai artists, and last-minute guest additions. Checklist apps give rigid, generic templates that ignore culture and scale.
 
-Utsav uses GenAI as the **planner** instead of a template. The plan is generated from your real constraints: budget tier, guest count, city, culture and days left.
+**Dawat** uses GenAI as an empathetic, culturally astute master planner. It derives realistic budgets, timelines, and vendors tailored specifically to Telangana traditions, guest tiers, and venue logistics.
 
 ## Features → Challenge Requirements
 
-| #   | Requirement            | What Utsav does                                                                                                                                                                       |
+| #   | Requirement            | What Dawat does                                                                                                                                                                       |
 | --- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1   | **Budget**             | AI splits the budget into categories in ₹. You can edit the split, and it re-balances to 100%. You log expenses, see allocated-vs-spent charts and get an overspend alert.            |
 | 2   | **Timeline**           | A countdown ("42 days to go"). Tasks are generated between today and the event date and grouped by phase, with check-off and a progress bar.                                          |

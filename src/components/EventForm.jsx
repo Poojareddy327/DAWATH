@@ -43,19 +43,21 @@ export default function EventForm({ today, onSubmit }) {
   return (
     <div className="mx-auto max-w-3xl px-4 pb-16">
       <div className="mb-6 text-center">
-        <h1 className="font-display text-3xl font-bold text-stone-900 sm:text-4xl dark:text-stone-50">
-          Plan your celebration in seconds
+        <h1 className="font-display text-3xl font-bold text-emerald-950 sm:text-4xl dark:text-stone-50">
+          Plan your Hyderabadi & Telangana Celebration
         </h1>
         <p className="mx-auto mt-2 max-w-xl text-stone-700 dark:text-stone-300">
-          Answer a few questions and Utsav drafts your budget, countdown timeline, vendor checklist
-          and personalised ideas — all editable.
+          From grand Telugu Pellillu to regal Nizami Dawats: Dawat drafts your budget, countdown
+          timeline, vendor checklist and personalized ideas in seconds.
         </p>
       </div>
 
       <Card className="mb-6">
-        <h2 className="text-lg font-semibold text-rose-900 dark:text-amber-300">Try a sample</h2>
+        <h2 className="text-lg font-semibold text-emerald-950 dark:text-amber-300">
+          Try a sample celebration
+        </h2>
         <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
-          See a full plan instantly with one of our example families.
+          Instant plan demonstration with real Telangana & Hyderabadi families.
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
           {PERSONAS.map((p) => (
@@ -169,7 +171,7 @@ export default function EventForm({ today, onSubmit }) {
                   className={inputClass}
                   value={values.city}
                   onChange={set('city')}
-                  placeholder="e.g. Kochi"
+                  placeholder="e.g. Hyderabad"
                   required
                 />
               )}
@@ -209,7 +211,7 @@ export default function EventForm({ today, onSubmit }) {
                   className={inputClass}
                   value={values.prefs}
                   onChange={set('prefs')}
-                  placeholder="e.g. Pure vegetarian, minimal plastic, outdoor evening"
+                  placeholder="e.g. Traditional Telugu Jeelakarra Bellam, Hyderabadi Dum Biryani, Kompally indoor AC hall, Marfa band"
                 />
               )}
             </Field>

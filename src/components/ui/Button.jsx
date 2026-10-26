@@ -1,9 +1,9 @@
 const VARIANTS = {
   primary:
-    'bg-rose-900 text-white shadow-sm hover:bg-rose-800 dark:bg-amber-400 dark:text-stone-950 dark:hover:bg-amber-300',
+    'bg-emerald-900 text-white shadow-sm hover:bg-emerald-800 border border-emerald-950/20 dark:bg-amber-400 dark:text-emerald-950 dark:hover:bg-amber-300 dark:border-amber-500/30',
   secondary:
-    'border border-rose-900/30 bg-white text-rose-900 hover:bg-rose-50 dark:border-amber-300/40 dark:bg-stone-900 dark:text-amber-200 dark:hover:bg-stone-800',
-  ghost: 'text-rose-900 hover:bg-rose-50 dark:text-amber-200 dark:hover:bg-stone-800',
+    'border border-emerald-900/30 bg-white text-emerald-900 hover:bg-emerald-50/80 dark:border-amber-300/40 dark:bg-stone-900 dark:text-amber-200 dark:hover:bg-stone-800',
+  ghost: 'text-emerald-900 hover:bg-emerald-50 dark:text-amber-200 dark:hover:bg-stone-800',
   danger:
     'border border-red-700/40 bg-white text-red-800 hover:bg-red-50 dark:border-red-400/50 dark:bg-stone-900 dark:text-red-300 dark:hover:bg-stone-800',
 };

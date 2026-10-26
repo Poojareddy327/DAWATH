@@ -15,7 +15,7 @@ const event = createEvent(
 afterEach(() => localStorage.clear());
 
 describe('storage adapter', () => {
-  it('round-trips the event under utsav:v1:event', () => {
+  it('round-trips the event under dawat:v1:event', () => {
     expect(saveEvent(event)).toBe(true);
     expect(JSON.parse(localStorage.getItem(STORAGE_KEY)).version).toBe(1);
     expect(loadEvent()).toEqual(event);
@@ -45,7 +45,7 @@ describe('storage adapter', () => {
   it('stores only valid themes', () => {
     saveTheme('dark');
     expect(loadTheme()).toBe('dark');
-    localStorage.setItem('utsav:theme', 'neon');
+    localStorage.setItem('dawat:theme', 'neon');
     expect(loadTheme()).toBeNull();
   });
 });

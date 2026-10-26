@@ -20,7 +20,7 @@ afterEach(() => {
 async function startSample(user) {
   render(<App />);
   await user.click(screen.getByRole('button', { name: /Arjun/ }));
-  return screen.findByRole('heading', { level: 1, name: /Birthday · Pune/ });
+  return screen.findByRole('heading', { level: 1, name: /Birthday · Hyderabad/ });
 }
 
 describe('App (offline judge path)', () => {
@@ -30,7 +30,7 @@ describe('App (offline judge path)', () => {
     expect(screen.getByText(FALLBACK_TOAST)).toBeInTheDocument();
     expect(screen.getByText(/Smart starter plan/)).toBeInTheDocument();
     await waitFor(() =>
-      expect(JSON.parse(localStorage.getItem(STORAGE_KEY)).meta.city).toBe('Pune'),
+      expect(JSON.parse(localStorage.getItem(STORAGE_KEY)).meta.city).toBe('Hyderabad'),
     );
   });
 
@@ -73,9 +73,9 @@ describe('App (offline judge path)', () => {
     await user.click(screen.getByRole('tab', { name: /Timeline/ }));
     const before = screen.getAllByRole('checkbox').length;
 
-    await user.click(screen.getByRole('button', { name: 'Ask Utsav' }));
-    const dialog = screen.getByRole('dialog', { name: 'Plan assistant' });
-    await user.click(within(dialog).getByRole('button', { name: 'Plan B for rain' }));
+    await user.click(screen.getByRole('button', { name: 'Ask Dawat' }));
+    const dialog = screen.getByRole('dialog', { name: /Dawat AI Assistant/ });
+    await user.click(within(dialog).getByRole('button', { name: /Plan B for rain/ }));
     const applyButtons = await within(dialog).findAllByRole('button', { name: 'Apply' });
     expect(screen.getAllByRole('checkbox')).toHaveLength(before);
 
@@ -85,7 +85,7 @@ describe('App (offline judge path)', () => {
 
     await user.keyboard('{Escape}');
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Ask Utsav' })).toHaveFocus();
+    expect(screen.getByRole('button', { name: 'Ask Dawat' })).toHaveFocus();
   });
 
   it('asks before starting a new plan', async () => {
@@ -94,7 +94,7 @@ describe('App (offline judge path)', () => {
     await user.click(screen.getByRole('button', { name: 'Start new plan' }));
     await user.click(screen.getByRole('button', { name: 'Yes, clear' }));
     expect(
-      screen.getByRole('heading', { name: 'Plan your celebration in seconds' }),
+      screen.getByRole('heading', { name: 'Plan your Hyderabadi & Telangana Celebration' }),
     ).toBeInTheDocument();
     await waitFor(() => expect(localStorage.getItem(STORAGE_KEY)).toBeNull());
   });

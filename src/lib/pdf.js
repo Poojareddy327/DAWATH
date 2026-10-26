@@ -45,8 +45,8 @@ export async function downloadBudgetPdf(event) {
   const left = 40;
   let y = 56;
 
-  doc.setFont('helvetica', 'bold').setFontSize(18).setTextColor(136, 19, 55);
-  doc.text('Utsav - Budget summary', left, y);
+  doc.setFont('helvetica', 'bold').setFontSize(18).setTextColor(6, 78, 59);
+  doc.text('Dawat - Telangana & Hyderabadi Event Budget', left, y);
   y += 22;
   doc.setFont('helvetica', 'normal').setFontSize(11).setTextColor(40, 40, 40);
   doc.text(s.title, left, y);
@@ -94,5 +94,5 @@ export async function downloadBudgetPdf(event) {
     });
   }
 
-  doc.save('utsav-budget.pdf');
+  doc.save('dawat-budget.pdf');
 }

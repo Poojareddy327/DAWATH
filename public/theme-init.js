@@ -2,7 +2,7 @@
 (function () {
   var theme = null;
   try {
-    theme = localStorage.getItem('utsav:theme');
+    theme = localStorage.getItem('dawat:theme');
   } catch {
     theme = null;
   }

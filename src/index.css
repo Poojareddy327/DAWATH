@@ -5,20 +5,28 @@
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Fraunces', ui-serif, Georgia, serif;
-  --color-ivory: #fdf8ef;
-  --color-cream: #f7ecd6;
+  --color-ivory: #faf8f2;
+  --color-cream: #f4eee0;
+  --color-hyderabad-emerald: #064e3b;
+  --color-nizam-gold: #d97706;
+  --color-zari-amber: #f59e0b;
 }
 
 @layer base {
   html {
     background-color: var(--color-ivory);
-    color: var(--color-stone-900);
+    color: #1c1917;
     -webkit-text-size-adjust: 100%;
+    /* Subtle Deccani jaali motif in background */
+    background-image: radial-gradient(#d9770615 1px, transparent 1px);
+    background-size: 24px 24px;
   }
   html.dark {
-    background-color: var(--color-stone-950);
-    color: var(--color-stone-100);
+    background-color: #04140e;
+    color: #f5f5f4;
     color-scheme: dark;
+    background-image: radial-gradient(#fbbf2410 1px, transparent 1px);
+    background-size: 24px 24px;
   }
   body {
     min-height: 100dvh;
@@ -29,12 +37,12 @@
     font-family: var(--font-display);
   }
   :focus-visible {
-    outline: 3px solid var(--color-rose-900);
+    outline: 3px solid #064e3b;
     outline-offset: 2px;
     border-radius: 6px;
   }
   .dark :focus-visible {
-    outline-color: var(--color-amber-400);
+    outline-color: #fbbf24;
   }
 }
 
@@ -44,7 +52,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(2px);
+    transform: translateY(3px);
   }
 }
 
@@ -61,7 +69,7 @@
 }
 
 .garland-sway {
-  animation: sway 4s ease-in-out infinite;
+  animation: sway 5s ease-in-out infinite;
 }
 
 .skeleton {
@@ -84,6 +92,7 @@
   html.dark {
     background: #fff;
     color: #000;
+    background-image: none;
   }
   @page {
     margin: 14mm;
