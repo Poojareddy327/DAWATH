@@ -15,7 +15,7 @@ export default function ThemeToggle() {
   return (
     <Button size="sm" variant="ghost" aria-pressed={dark} onClick={toggle}>
       <span aria-hidden="true">{dark ? '☀️' : '🌙'}</span>
-      Dark mode
+      {dark ? 'Light mode' : 'Dark mode'}
     </Button>
   );
 }

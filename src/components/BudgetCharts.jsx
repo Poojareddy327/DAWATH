@@ -184,7 +184,7 @@ export default function BudgetCharts({ rows }) {
               role="img"
               aria-label="Pie chart of budget allocation. Use “View as table” for exact values."
             >
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
                 <PieChart>
                   <Pie
                     data={rows}
@@ -222,7 +222,7 @@ export default function BudgetCharts({ rows }) {
               role="img"
               aria-label="Bar chart comparing allocated and spent amounts per category. Use “View as table” for exact values."
             >
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
                 <BarChart data={rows} layout="vertical" margin={{ left: 0, right: 12 }} barGap={2}>
                   <CartesianGrid horizontal={false} stroke={grid} />
                   <XAxis

@@ -1,10 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { formatDate, formatNumber } from '../lib/format.js';
 import Button from './ui/Button.jsx';
 
 export default function CelebrationPass({ event, onClose, notify }) {
   const [copied, setCopied] = useState(false);
   const { meta, plan } = event;
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose?.();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
 
   const invitationText = `✨ Sree / Adaab! You are cordially invited to celebrate:
 🎉 ${meta.culture ? `${meta.culture} ` : ''}${meta.type.toUpperCase()} · ${meta.city}

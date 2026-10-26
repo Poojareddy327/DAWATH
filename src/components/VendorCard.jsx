@@ -15,7 +15,13 @@ const STATUS_STYLE = {
 
 export default function VendorCard({ vendor, status, contact, onStatus, onContact }) {
   const [draft, setDraft] = useState(contact);
+  const [prevContact, setPrevContact] = useState(contact);
   const base = `vendor-${vendor.id}`;
+
+  if (contact !== prevContact) {
+    setPrevContact(contact);
+    setDraft(contact);
+  }
 
   return (
     <li className="flex flex-col rounded-2xl border border-amber-300/60 bg-white/95 p-4 shadow-sm backdrop-blur-sm dark:border-purple-800/40 dark:bg-[#130924]">

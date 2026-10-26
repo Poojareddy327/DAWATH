@@ -71,15 +71,29 @@ export default function ReadinessScore({ event, today }) {
         </div>
       </div>
 
-      {nextTask && (
-        <div className="mt-3 flex items-center gap-2 rounded-xl border border-amber-200/60 bg-white/80 px-3 py-2 text-xs text-stone-700 dark:border-purple-800/40 dark:bg-[#100722]/80 dark:text-stone-300">
-          <span className="font-semibold text-purple-900 dark:text-amber-300">Next Priority:</span>
-          <span className="font-medium text-stone-900 dark:text-stone-100">{nextTask.title}</span>
-          <span className="ml-auto rounded-md bg-amber-100/80 px-2 py-0.5 text-[11px] font-semibold text-amber-900 dark:bg-purple-900/60 dark:text-amber-200">
-            Due {daysBetween(today, dueDate(meta.date, nextTask.dueDaysBefore))}d before event
-          </span>
-        </div>
-      )}
+      {nextTask &&
+        (() => {
+          const daysLeft = daysBetween(today, dueDate(meta.date, nextTask.dueDaysBefore));
+          const dueLabel =
+            daysLeft > 0
+              ? `Due in ${daysLeft}d`
+              : daysLeft === 0
+                ? 'Due today'
+                : `${Math.abs(daysLeft)}d overdue`;
+          return (
+            <div className="mt-3 flex items-center gap-2 rounded-xl border border-amber-200/60 bg-white/80 px-3 py-2 text-xs text-stone-700 dark:border-purple-800/40 dark:bg-[#100722]/80 dark:text-stone-300">
+              <span className="font-semibold text-purple-900 dark:text-amber-300">
+                Next Priority:
+              </span>
+              <span className="font-medium text-stone-900 dark:text-stone-100">
+                {nextTask.title}
+              </span>
+              <span className="ml-auto rounded-md bg-amber-100/80 px-2 py-0.5 text-[11px] font-semibold text-amber-900 dark:bg-purple-900/60 dark:text-amber-200">
+                {dueLabel}
+              </span>
+            </div>
+          );
+        })()}
     </section>
   );
 }

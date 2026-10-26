@@ -97,53 +97,63 @@ export default function TimelineTab({ event, dispatch, today }) {
         )}
       </Card>
 
-      {PHASES.map((phase) =>
-        groups[phase.key].length === 0 ? null : (
-          <section key={phase.key} aria-labelledby={`phase-${phase.key}`}>
-            <h3
-              id={`phase-${phase.key}`}
-              className="mb-2 text-lg font-semibold text-stone-900 dark:text-stone-100"
-            >
-              {phase.label}
-              <span className="ml-2 text-sm font-normal text-stone-600 dark:text-stone-400">
-                ({groups[phase.key].filter((t) => done.has(t.id)).length}/{groups[phase.key].length}
-                )
-              </span>
-            </h3>
-            <ul className="space-y-2">
-              {groups[phase.key].map((task) =>
-                editingId === task.id ? (
-                  <li
-                    key={task.id}
-                    className="rounded-2xl border border-amber-200 bg-white p-3 dark:border-stone-700 dark:bg-stone-900"
-                  >
-                    <TaskForm
-                      idPrefix={`edit-${task.id}`}
-                      initial={task}
-                      maxDays={Math.max(maxDays, task.dueDaysBefore)}
-                      onCancel={() => setEditingId(null)}
-                      onSave={(changes) => {
-                        dispatch({ type: 'task/update', id: task.id, changes });
-                        setEditingId(null);
-                      }}
+      {filteredTasks.length === 0 ? (
+        <Card className="text-center py-8">
+          <p className="text-sm text-stone-600 dark:text-stone-300">
+            {search.trim()
+              ? `No milestones match "${search}". Try another search term or filter.`
+              : 'No milestones match this filter.'}
+          </p>
+        </Card>
+      ) : (
+        PHASES.map((phase) =>
+          groups[phase.key].length === 0 ? null : (
+            <section key={phase.key} aria-labelledby={`phase-${phase.key}`}>
+              <h3
+                id={`phase-${phase.key}`}
+                className="mb-2 text-lg font-semibold text-stone-900 dark:text-stone-100"
+              >
+                {phase.label}
+                <span className="ml-2 text-sm font-normal text-stone-600 dark:text-stone-400">
+                  ({groups[phase.key].filter((t) => done.has(t.id)).length}/
+                  {groups[phase.key].length})
+                </span>
+              </h3>
+              <ul className="space-y-2">
+                {groups[phase.key].map((task) =>
+                  editingId === task.id ? (
+                    <li
+                      key={task.id}
+                      className="rounded-2xl border border-amber-300/60 bg-white p-3 dark:border-purple-800/60 dark:bg-[#130924]"
+                    >
+                      <TaskForm
+                        idPrefix={`edit-${task.id}`}
+                        initial={task}
+                        maxDays={Math.max(maxDays, task.dueDaysBefore)}
+                        onCancel={() => setEditingId(null)}
+                        onSave={(changes) => {
+                          dispatch({ type: 'task/update', id: task.id, changes });
+                          setEditingId(null);
+                        }}
+                      />
+                    </li>
+                  ) : (
+                    <TaskItem
+                      key={task.id}
+                      task={task}
+                      eventDate={meta.date}
+                      today={today}
+                      done={done.has(task.id)}
+                      onToggle={() => dispatch({ type: 'task/toggle', id: task.id })}
+                      onEdit={() => setEditingId(task.id)}
+                      onRemove={() => dispatch({ type: 'task/remove', id: task.id })}
                     />
-                  </li>
-                ) : (
-                  <TaskItem
-                    key={task.id}
-                    task={task}
-                    eventDate={meta.date}
-                    today={today}
-                    done={done.has(task.id)}
-                    onToggle={() => dispatch({ type: 'task/toggle', id: task.id })}
-                    onEdit={() => setEditingId(task.id)}
-                    onRemove={() => dispatch({ type: 'task/remove', id: task.id })}
-                  />
-                ),
-              )}
-            </ul>
-          </section>
-        ),
+                  ),
+                )}
+              </ul>
+            </section>
+          ),
+        )
       )}
     </div>
   );

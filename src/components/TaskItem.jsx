@@ -18,7 +18,7 @@ export default function TaskItem({ task, eventDate, today, done, onToggle, onEdi
       className={`flex flex-wrap items-start gap-3 rounded-2xl border p-3.5 shadow-sm transition-all ${
         overdue
           ? 'border-red-700 bg-red-50/80 dark:border-red-400 dark:bg-red-950/40'
-          : 'border-amber-300/60 bg-white/95 dark:border-emerald-900/60 dark:bg-[#071f18]'
+          : 'border-amber-300/60 bg-white/95 dark:border-purple-800/40 dark:bg-[#130924]'
       }`}
     >
       <input
@@ -26,7 +26,7 @@ export default function TaskItem({ task, eventDate, today, done, onToggle, onEdi
         type="checkbox"
         checked={done}
         onChange={onToggle}
-        className="mt-1 size-5 shrink-0 rounded cursor-pointer accent-emerald-900 dark:accent-amber-400"
+        className="mt-1 size-5 shrink-0 rounded cursor-pointer accent-purple-950 dark:accent-amber-400"
       />
       <div className="min-w-48 flex-1">
         <label

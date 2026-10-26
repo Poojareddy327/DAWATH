@@ -9,6 +9,7 @@ const statusOf = (state, id) => state.vendorStatus[id] ?? 'to-contact';
 
 export default function VendorsTab({ event, dispatch }) {
   const [filter, setFilter] = useState('all');
+  const [search, setSearch] = useState('');
   const [adding, setAdding] = useState(false);
   const { plan, state } = event;
 
@@ -16,7 +17,18 @@ export default function VendorsTab({ event, dispatch }) {
   for (const v of plan.vendors) counts[statusOf(state, v.id)] += 1;
   const secured = counts.booked + counts.paid;
   const estTotal = plan.vendors.reduce((sum, v) => sum + v.estCost, 0);
-  const visible = plan.vendors.filter((v) => filter === 'all' || statusOf(state, v.id) === filter);
+  const visible = plan.vendors.filter((v) => {
+    if (filter !== 'all' && statusOf(state, v.id) !== filter) return false;
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      const match =
+        v.type.toLowerCase().includes(q) ||
+        v.category.toLowerCase().includes(q) ||
+        (v.notes && v.notes.toLowerCase().includes(q));
+      if (!match) return false;
+    }
+    return true;
+  });
 
   const chips = [
     ['all', 'All', plan.vendors.length],
@@ -50,26 +62,40 @@ export default function VendorsTab({ event, dispatch }) {
         />
       )}
 
-      <div role="group" aria-label="Filter vendors by status" className="flex flex-wrap gap-2">
-        {chips.map(([value, label, count]) => (
-          <button
-            key={value}
-            type="button"
-            aria-pressed={filter === value}
-            onClick={() => setFilter(value)}
-            className={`min-h-9 rounded-full border px-3 text-sm font-semibold transition-all ${
-              filter === value
-                ? 'border-amber-400/50 bg-gradient-to-r from-purple-950 to-indigo-900 text-amber-200 shadow-sm dark:border-transparent dark:from-amber-400 dark:to-yellow-500 dark:text-purple-950'
-                : 'border-amber-300/60 bg-white/90 text-stone-800 hover:border-amber-400 hover:bg-purple-50/80 dark:border-purple-800/40 dark:bg-[#130924] dark:text-stone-200'
-            }`}
-          >
-            {label} ({count})
-          </button>
-        ))}
+      <div className="flex flex-wrap items-center gap-2">
+        <input
+          type="search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search vendors…"
+          aria-label="Search vendors"
+          className="min-h-9 w-full sm:w-56 rounded-full border border-amber-300/60 bg-white px-3.5 text-xs text-stone-900 shadow-xs focus:border-purple-800 focus:outline-none dark:border-purple-800/60 dark:bg-[#130924] dark:text-stone-100"
+        />
+        <div role="group" aria-label="Filter vendors by status" className="flex flex-wrap gap-1.5">
+          {chips.map(([value, label, count]) => (
+            <button
+              key={value}
+              type="button"
+              aria-pressed={filter === value}
+              onClick={() => setFilter(value)}
+              className={`min-h-9 rounded-full border px-3 text-sm font-semibold transition-all ${
+                filter === value
+                  ? 'border-amber-400/50 bg-gradient-to-r from-purple-950 to-indigo-900 text-amber-200 shadow-sm dark:border-transparent dark:from-amber-400 dark:to-yellow-500 dark:text-purple-950'
+                  : 'border-amber-300/60 bg-white/90 text-stone-800 hover:border-amber-400 hover:bg-purple-50/80 dark:border-purple-800/40 dark:bg-[#130924] dark:text-stone-200'
+              }`}
+            >
+              {label} ({count})
+            </button>
+          ))}
+        </div>
       </div>
 
       {visible.length === 0 ? (
-        <p className="text-stone-600 dark:text-stone-400">No vendors with this status yet.</p>
+        <p className="text-stone-600 dark:text-stone-400">
+          {search.trim()
+            ? `No vendors match "${search}". Try another search term or filter.`
+            : 'No vendors with this status yet.'}
+        </p>
       ) : (
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((vendor) => (
