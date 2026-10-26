@@ -71,11 +71,12 @@ function TableView({ rows }) {
 
 export default function BudgetCharts({ rows }) {
   const [asTable, setAsTable] = useState(false);
+  const [selectedId, setSelectedId] = useState(() => rows[0]?.id ?? null);
   const dark = useIsDark();
   const colors = dark ? SERIES.dark : SERIES.light;
   const ink = dark ? '#d6d3d1' : '#44403c';
   const grid = dark ? '#292524' : '#f5e9d3';
-  const surface = dark ? '#1c1917' : '#ffffff';
+  const surface = dark ? '#130924' : '#ffffff';
   const tooltipStyle = {
     background: surface,
     border: `1px solid ${grid}`,
@@ -83,21 +84,90 @@ export default function BudgetCharts({ rows }) {
     color: ink,
   };
 
+  const selectedRow = rows.find((r) => r.id === selectedId) ?? rows[0];
+  const totalAllocated = rows.reduce((s, r) => s + r.allocated, 0);
+  const totalSpent = rows.reduce((s, r) => s + r.spent, 0);
+  const overallUtilized = totalAllocated > 0 ? Math.round((totalSpent / totalAllocated) * 100) : 0;
+
   return (
-    <Card aria-labelledby="charts-title">
+    <Card aria-labelledby="charts-title" className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h3 id="charts-title" className="text-lg font-semibold text-purple-950 dark:text-amber-300">
-          Budget at a glance
-        </h3>
-        <Button
-          size="sm"
-          variant="secondary"
-          aria-pressed={asTable}
-          onClick={() => setAsTable((v) => !v)}
-        >
-          {asTable ? 'View as charts' : 'View as table'}
-        </Button>
+        <div>
+          <h3
+            id="charts-title"
+            className="text-lg font-semibold text-purple-950 dark:text-amber-300"
+          >
+            Budget at a glance
+          </h3>
+          <p className="text-xs text-stone-600 dark:text-stone-400">
+            Interactive visual analytics & category spend efficiency ({overallUtilized}% allocated
+            utilized)
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <Button
+            size="sm"
+            variant="secondary"
+            aria-pressed={asTable}
+            onClick={() => setAsTable((v) => !v)}
+          >
+            {asTable ? 'View as charts' : 'View as table'}
+          </Button>
+        </div>
       </div>
+
+      {/* Category Spotlight & Analytics Card */}
+      {selectedRow && !asTable && (
+        <div className="rounded-2xl border border-amber-300/70 bg-gradient-to-r from-purple-50/60 via-white to-amber-50/50 p-4 shadow-sm backdrop-blur-sm dark:border-purple-800/40 dark:from-[#190c33] dark:via-[#130924] dark:to-[#170a30]">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-semibold text-purple-950 dark:text-amber-200">
+                  Spotlight: {selectedRow.name}
+                </span>
+                <span
+                  className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${
+                    selectedRow.overspent
+                      ? 'border border-red-300 bg-red-100 text-red-900 dark:bg-red-950 dark:text-red-200'
+                      : selectedRow.spent > selectedRow.allocated * 0.85
+                        ? 'border border-amber-300 bg-amber-100 text-amber-950 dark:bg-amber-950 dark:text-amber-200'
+                        : 'border border-emerald-300 bg-emerald-100 text-emerald-950 dark:bg-emerald-950 dark:text-emerald-200'
+                  }`}
+                >
+                  {selectedRow.overspent
+                    ? '🚨 Over Budget'
+                    : selectedRow.spent > selectedRow.allocated * 0.85
+                      ? '⚠️ 85%+ Utilized'
+                      : '✓ Healthy Buffer'}
+                </span>
+              </div>
+              <p className="mt-1 text-xs text-stone-600 dark:text-stone-300">
+                Share: {selectedRow.percent}% · Allocated: {formatINR(selectedRow.allocated)} ·
+                Spent: {formatINR(selectedRow.spent)} · Remaining:{' '}
+                {formatINR(Math.max(0, selectedRow.allocated - selectedRow.spent))}
+              </p>
+            </div>
+
+            {/* Quick Category Selector Pills */}
+            <div className="flex flex-wrap gap-1.5 overflow-x-auto max-w-full pb-1">
+              {rows.map((r) => (
+                <button
+                  key={r.id}
+                  type="button"
+                  onClick={() => setSelectedId(r.id)}
+                  className={`min-h-7 rounded-full border px-2.5 text-xs font-semibold transition-all ${
+                    r.id === selectedRow.id
+                      ? 'border-amber-400 bg-gradient-to-r from-purple-950 to-indigo-900 text-amber-200 shadow-2xs dark:from-amber-400 dark:to-yellow-500 dark:text-purple-950 dark:border-transparent'
+                      : 'border-amber-200/60 bg-white/90 text-stone-700 hover:bg-purple-50 dark:border-purple-800/40 dark:bg-[#130924] dark:text-stone-300'
+                  }`}
+                >
+                  {r.name}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {asTable ? (
         <div className="mt-4">

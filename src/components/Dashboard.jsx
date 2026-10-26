@@ -4,6 +4,7 @@ import { countdownLabel, daysBetween } from '../lib/dates.js';
 import { formatDate, formatINR, formatNumber } from '../lib/format.js';
 import { downloadBudgetPdf } from '../lib/pdf.js';
 import BudgetTab from './BudgetTab.jsx';
+import CelebrationPass from './CelebrationPass.jsx';
 import IdeasTab from './IdeasTab.jsx';
 import ReadinessScore from './ReadinessScore.jsx';
 import Tabs from './Tabs.jsx';
@@ -21,6 +22,7 @@ const TABS = [
 export default function Dashboard({ event, dispatch, today, notify }) {
   const [tab, setTab] = useState('budget');
   const [pdfBusy, setPdfBusy] = useState(false);
+  const [showPass, setShowPass] = useState(false);
   const headingRef = useRef(null);
   const { meta, plan } = event;
   const typeLabel = EVENT_TYPES.find((t) => t.value === meta.type)?.label ?? meta.type;
@@ -64,6 +66,9 @@ export default function Dashboard({ event, dispatch, today, notify }) {
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
+            <Button variant="secondary" size="sm" onClick={() => setShowPass(true)}>
+              💌 Digital Patrika
+            </Button>
             <Button variant="secondary" size="sm" onClick={() => window.print()}>
               🖨️ Print checklist
             </Button>
@@ -105,6 +110,10 @@ export default function Dashboard({ event, dispatch, today, notify }) {
           return <IdeasTab event={event} dispatch={dispatch} notify={notify} />;
         }}
       </Tabs>
+
+      {showPass && (
+        <CelebrationPass event={event} onClose={() => setShowPass(false)} notify={notify} />
+      )}
     </div>
   );
 }
